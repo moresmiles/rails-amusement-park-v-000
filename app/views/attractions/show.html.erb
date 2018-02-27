@@ -1,0 +1,7 @@
+<h1><%= @attraction.name %></h1><br>
+
+<h3>Cost: <%= @attraction.tickets %> tickets </h3><br>
+
+<%= button_to "Go on this ride", new_ride_path, method: :get, params: {'ride[user_id]' => @user.id, 'ride[attraction_id]' => @attraction.id} unless @user.admin? %>
+
+<%= link_to "Edit Attraction", edit_attraction_path(@attraction) if @user.admin? %>
